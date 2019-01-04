@@ -1,7 +1,28 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	console.log("users.js loaded!")
 	attachEventListeners()
 });
+
+function attachEventListeners() {
+	// listen for clicks
+	// find a link or a button, with an ID or class to identify
+	getHikes()
+}
+
+function getHikes() {
+	$.ajax({
+		url: 'http://localhost:3000/users/1.json',
+		dataType: 'json',
+		method: 'get'
+	}).done(function (data) {
+
+		console.log("data: ", data);
+		debugger;
+		//  json data won't go on the DOM in its raw form
+
+	})
+}
+
 
 //hikes#index
 
@@ -21,7 +42,7 @@ $(document).ready(function() {
 //Comments
 //should I put this in it's own JS file?
 class Comment {
-  //do I have access to commentor here?
+	//do I have access to commentor here?
 	constructor(commentor, content, id) {
 		this.commentor = commentor;
 		this.content = content;
@@ -29,10 +50,10 @@ class Comment {
 	}
 }
 
-Comment.prototype.someFunction = function() {
+Comment.prototype.someFunction = function () {
 	//do something
 }
 
-Comment.prototype.formatHTML = function() {
-  //display formatted comment with commentor username
+Comment.prototype.formatHTML = function () {
+	//display formatted comment with commentor username
 }
